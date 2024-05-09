@@ -14,9 +14,10 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new
+    @student.email = params.fetch("query_email")
     @student.first_name = params.fetch("query_first_name")
     @student.last_name = params.fetch("query_last_name")
-    @student.email = params.fetch("query_email")
+   
 
     if @student.valid?
       @student.save
